@@ -11,13 +11,14 @@
 #define RTP_ACK   3
 
 #define BUFFER_SIZE 2048
+#define PACKET_SIZE 1472-11
 
 typedef struct __attribute__ ((__packed__)) RTP_header {
     uint8_t type;       // 0: START; 1: END; 2: DATA; 3: ACK
     uint16_t length;    // Length of data; 0 for ACK, START and END packets
     uint32_t seq_num;
     uint32_t checksum;  // 32-bit CRC
-} rtp_header_t;
+} rtp_header_t; // 11 bytes
 
 
 typedef struct RTP_control_block {
@@ -43,5 +44,9 @@ int rtp_close(int sockfd);
 int rtp_sendto(int sockfd, const void *msg, int len, int flags, const struct sockaddr *to, socklen_t tolen);
 
 int rtp_recvfrom(int sockfd, void *buf, int len, int flags, struct sockaddr *from, socklen_t *fromlen);
+
+int rtp_sendstatus(int sockfd, const struct sockaddr *to, socklen_t tolen, int status);
+
+int rtp_recvstatus(int sockfd, struct sockaddr *from, socklen_t *fromlen);
 
 #endif //RTP_H
