@@ -11,8 +11,6 @@
 #include "util.h"
 #include "rtp.h"
 
-#define RECV_BUFFER_SIZE 32768  // 32KB
-
 int receiver(char *receiver_port, int window_size, char* file_name) {
 
   char buffer[RECV_BUFFER_SIZE];
@@ -44,19 +42,22 @@ int receiver(char *receiver_port, int window_size, char* file_name) {
   socklen_t addr_len = sizeof(struct sockaddr_in);
 
   // listen to incoming rtp connection
-  if(rtp_listen(receiver_fd, 1) == -1)
-    return -1;
+  if(rtp_listen(receiver_fd, 1) == -1){
+      rtp_close(receiver_fd);
+      return -1;
+  }
+    
   // accept the rtp connection
   rtp_accept(receiver_fd, (struct sockaddr*)&sender, &addr_len);
 
   // receive packet
   FILE *f = fopen(file_name, "wb+");
-  while ((recv_bytes = rtp_recvfrom(receiver_fd, (void *)buffer, sizeof(buffer), 0, (struct sockaddr*)&sender, &addr_len)) > 0) {
-    buffer[recv_bytes] = '\0';  
+  while ((recv_bytes = rtp_recvfrom(receiver_fd, (void *)buffer, sizeof(buffer), 0, (struct sockaddr*)&sender, &addr_len)) > 0) { 
+    buffer[recv_bytes] = '\0'; 
     fwrite(buffer, recv_bytes, 1, f); 
+    //if(recv_bytes < TOTAL_PACKET * PACKET_SIZE) break;
   }
-  rtp_close(receiver_fd);
-  printf("\nConnection closed...\n");
+  //rtp_close(receiver_fd);
   return 0;
 }
 

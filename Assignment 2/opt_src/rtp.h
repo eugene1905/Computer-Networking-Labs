@@ -14,6 +14,7 @@
 #define BUFFER_SIZE 2048
 #define PACKET_SIZE (1472-11)
 #define MAX_PACKET (750000)
+#define TOTAL_PACKET (RECV_BUFFER_SIZE / PACKET_SIZE)
 
 typedef struct __attribute__ ((__packed__)) RTP_header {
     uint8_t type;       // 0: START; 1: END; 2: DATA; 3: ACK

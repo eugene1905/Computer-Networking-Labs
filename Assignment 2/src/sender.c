@@ -32,8 +32,11 @@ int sender(char *receiver_ip, char* receiver_port, int window_size, char* messag
   }
 
   // connect to server
-  if(rtp_connect(sock, (struct sockaddr *)&receiver_addr, sizeof(struct sockaddr)) == -1)
+  if(rtp_connect(sock, (struct sockaddr *)&receiver_addr, sizeof(struct sockaddr)) == -1){
+    rtp_close(sock);
     return -1;
+  }
+    
 
   // send data
 
@@ -61,7 +64,6 @@ int sender(char *receiver_ip, char* receiver_port, int window_size, char* messag
 
   // close rtp socket
   rtp_close(sock);
-  printf("Connection closed...\n");
   return 0;
 }
 
