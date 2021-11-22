@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named opt_receiver
+
+# Build rule for target.
+opt_receiver: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 opt_receiver
+.PHONY : opt_receiver
+
+# fast build rule for target.
+opt_receiver/fast:
+	$(MAKE) -f CMakeFiles/opt_receiver.dir/build.make CMakeFiles/opt_receiver.dir/build
+.PHONY : opt_receiver/fast
+
+#=============================================================================
+# Target rules for targets named opt_sender
+
+# Build rule for target.
+opt_sender: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 opt_sender
+.PHONY : opt_sender
+
+# fast build rule for target.
+opt_sender/fast:
+	$(MAKE) -f CMakeFiles/opt_sender.dir/build.make CMakeFiles/opt_sender.dir/build
+.PHONY : opt_sender/fast
+
+#=============================================================================
 # Target rules for targets named receiver
 
 # Build rule for target.
@@ -135,6 +161,90 @@ sender: cmake_check_build_system
 sender/fast:
 	$(MAKE) -f CMakeFiles/sender.dir/build.make CMakeFiles/sender.dir/build
 .PHONY : sender/fast
+
+opt_src/receiver.o: opt_src/receiver.c.o
+
+.PHONY : opt_src/receiver.o
+
+# target to build an object file
+opt_src/receiver.c.o:
+	$(MAKE) -f CMakeFiles/opt_receiver.dir/build.make CMakeFiles/opt_receiver.dir/opt_src/receiver.c.o
+.PHONY : opt_src/receiver.c.o
+
+opt_src/receiver.i: opt_src/receiver.c.i
+
+.PHONY : opt_src/receiver.i
+
+# target to preprocess a source file
+opt_src/receiver.c.i:
+	$(MAKE) -f CMakeFiles/opt_receiver.dir/build.make CMakeFiles/opt_receiver.dir/opt_src/receiver.c.i
+.PHONY : opt_src/receiver.c.i
+
+opt_src/receiver.s: opt_src/receiver.c.s
+
+.PHONY : opt_src/receiver.s
+
+# target to generate assembly for a file
+opt_src/receiver.c.s:
+	$(MAKE) -f CMakeFiles/opt_receiver.dir/build.make CMakeFiles/opt_receiver.dir/opt_src/receiver.c.s
+.PHONY : opt_src/receiver.c.s
+
+opt_src/sender.o: opt_src/sender.c.o
+
+.PHONY : opt_src/sender.o
+
+# target to build an object file
+opt_src/sender.c.o:
+	$(MAKE) -f CMakeFiles/opt_sender.dir/build.make CMakeFiles/opt_sender.dir/opt_src/sender.c.o
+.PHONY : opt_src/sender.c.o
+
+opt_src/sender.i: opt_src/sender.c.i
+
+.PHONY : opt_src/sender.i
+
+# target to preprocess a source file
+opt_src/sender.c.i:
+	$(MAKE) -f CMakeFiles/opt_sender.dir/build.make CMakeFiles/opt_sender.dir/opt_src/sender.c.i
+.PHONY : opt_src/sender.c.i
+
+opt_src/sender.s: opt_src/sender.c.s
+
+.PHONY : opt_src/sender.s
+
+# target to generate assembly for a file
+opt_src/sender.c.s:
+	$(MAKE) -f CMakeFiles/opt_sender.dir/build.make CMakeFiles/opt_sender.dir/opt_src/sender.c.s
+.PHONY : opt_src/sender.c.s
+
+opt_src/util.o: opt_src/util.c.o
+
+.PHONY : opt_src/util.o
+
+# target to build an object file
+opt_src/util.c.o:
+	$(MAKE) -f CMakeFiles/opt_receiver.dir/build.make CMakeFiles/opt_receiver.dir/opt_src/util.c.o
+	$(MAKE) -f CMakeFiles/opt_sender.dir/build.make CMakeFiles/opt_sender.dir/opt_src/util.c.o
+.PHONY : opt_src/util.c.o
+
+opt_src/util.i: opt_src/util.c.i
+
+.PHONY : opt_src/util.i
+
+# target to preprocess a source file
+opt_src/util.c.i:
+	$(MAKE) -f CMakeFiles/opt_receiver.dir/build.make CMakeFiles/opt_receiver.dir/opt_src/util.c.i
+	$(MAKE) -f CMakeFiles/opt_sender.dir/build.make CMakeFiles/opt_sender.dir/opt_src/util.c.i
+.PHONY : opt_src/util.c.i
+
+opt_src/util.s: opt_src/util.c.s
+
+.PHONY : opt_src/util.s
+
+# target to generate assembly for a file
+opt_src/util.c.s:
+	$(MAKE) -f CMakeFiles/opt_receiver.dir/build.make CMakeFiles/opt_receiver.dir/opt_src/util.c.s
+	$(MAKE) -f CMakeFiles/opt_sender.dir/build.make CMakeFiles/opt_sender.dir/opt_src/util.c.s
+.PHONY : opt_src/util.c.s
 
 src/receiver.o: src/receiver.c.o
 
@@ -228,8 +338,19 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... opt_receiver"
+	@echo "... opt_sender"
 	@echo "... receiver"
 	@echo "... sender"
+	@echo "... opt_src/receiver.o"
+	@echo "... opt_src/receiver.i"
+	@echo "... opt_src/receiver.s"
+	@echo "... opt_src/sender.o"
+	@echo "... opt_src/sender.i"
+	@echo "... opt_src/sender.s"
+	@echo "... opt_src/util.o"
+	@echo "... opt_src/util.i"
+	@echo "... opt_src/util.s"
 	@echo "... src/receiver.o"
 	@echo "... src/receiver.i"
 	@echo "... src/receiver.s"

@@ -1,0 +1,72 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/opt_src/rtp.c
+errno.h
+-
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+string.h
+-
+netinet/in.h
+-
+unistd.h
+-
+poll.h
+-
+rtp.h
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/opt_src/rtp.h
+util.h
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/opt_src/util.h
+
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/opt_src/rtp.h
+stdint.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/opt_src/sender.c
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+errno.h
+-
+string.h
+-
+netdb.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+util.h
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/opt_src/util.h
+rtp.h
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/opt_src/rtp.h
+rtp.c
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/opt_src/rtp.c
+
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/opt_src/util.c
+util.h
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/opt_src/util.h
+
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/opt_src/util.h
+stdint.h
+-
+stddef.h
+-
+

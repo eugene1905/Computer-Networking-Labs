@@ -1,4 +1,6 @@
 /home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles/rebuild_cache.dir
 /home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles/edit_cache.dir
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles/opt_receiver.dir
+/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles/opt_sender.dir
 /home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles/receiver.dir
 /home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles/sender.dir
