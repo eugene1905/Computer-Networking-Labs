@@ -57,6 +57,7 @@ int receiver(char *receiver_port, int window_size, char* file_name) {
     fwrite(buffer, recv_bytes, 1, f); 
     //if(recv_bytes < TOTAL_PACKET * PACKET_SIZE) break;
   }
+  fclose(f);
   //rtp_close(receiver_fd);
   return 0;
 }
