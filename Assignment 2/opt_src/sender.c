@@ -9,7 +9,6 @@
 
 #include "util.h"
 #include "rtp.h"
-#include "rtp.c"
 
 int sender(char *receiver_ip, char* receiver_port, int window_size, char* message){
 

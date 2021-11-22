@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/opt_receiver.dir/opt_src/receiver.c.o"
+  "CMakeFiles/opt_receiver.dir/opt_src/rtp.c.o"
   "CMakeFiles/opt_receiver.dir/opt_src/util.c.o"
   "opt_receiver"
   "opt_receiver.pdb"

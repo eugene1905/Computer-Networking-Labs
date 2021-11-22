@@ -80,12 +80,12 @@ clean: CMakeFiles/sender.dir/clean
 CMakeFiles/opt_receiver.dir/all:
 	$(MAKE) -f CMakeFiles/opt_receiver.dir/build.make CMakeFiles/opt_receiver.dir/depend
 	$(MAKE) -f CMakeFiles/opt_receiver.dir/build.make CMakeFiles/opt_receiver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" --progress-num=1,2,3 "Built target opt_receiver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" --progress-num=1,2,3,4 "Built target opt_receiver"
 .PHONY : CMakeFiles/opt_receiver.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/opt_receiver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 3
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/opt_receiver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 0
 .PHONY : CMakeFiles/opt_receiver.dir/rule
@@ -107,12 +107,12 @@ CMakeFiles/opt_receiver.dir/clean:
 CMakeFiles/opt_sender.dir/all:
 	$(MAKE) -f CMakeFiles/opt_sender.dir/build.make CMakeFiles/opt_sender.dir/depend
 	$(MAKE) -f CMakeFiles/opt_sender.dir/build.make CMakeFiles/opt_sender.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" --progress-num=4,5,6 "Built target opt_sender"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" --progress-num=5,6,7,8 "Built target opt_sender"
 .PHONY : CMakeFiles/opt_sender.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/opt_sender.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 3
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/opt_sender.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 0
 .PHONY : CMakeFiles/opt_sender.dir/rule
@@ -134,12 +134,12 @@ CMakeFiles/opt_sender.dir/clean:
 CMakeFiles/receiver.dir/all:
 	$(MAKE) -f CMakeFiles/receiver.dir/build.make CMakeFiles/receiver.dir/depend
 	$(MAKE) -f CMakeFiles/receiver.dir/build.make CMakeFiles/receiver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" --progress-num=7,8,9 "Built target receiver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" --progress-num=9,10,11,12 "Built target receiver"
 .PHONY : CMakeFiles/receiver.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/receiver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 3
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/receiver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 0
 .PHONY : CMakeFiles/receiver.dir/rule
@@ -161,12 +161,12 @@ CMakeFiles/receiver.dir/clean:
 CMakeFiles/sender.dir/all:
 	$(MAKE) -f CMakeFiles/sender.dir/build.make CMakeFiles/sender.dir/depend
 	$(MAKE) -f CMakeFiles/sender.dir/build.make CMakeFiles/sender.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" --progress-num=10,11,12 "Built target sender"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" --progress-num=13,14,15,16 "Built target sender"
 .PHONY : CMakeFiles/sender.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/sender.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 3
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/sender.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles" 0
 .PHONY : CMakeFiles/sender.dir/rule

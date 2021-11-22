@@ -57,8 +57,6 @@ util.h
 /home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/src/util.h
 rtp.h
 /home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/src/rtp.h
-rtp.c
-/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/src/rtp.c
 
 /home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/src/util.h
 stdint.h

@@ -12,28 +12,28 @@ link_directories(/usr/local/lib)
 
 add_executable(sender
 		# if you use recommended template, you need to cancel the comment of the next line
-		#src/rtp.c
+		src/rtp.c
         src/util.c
         src/sender.c)
 target_link_libraries(sender)
 
 add_executable(receiver
 		# if you use recommended template, you need to cancel the comment of the next line
-		#src/rtp.c
+		src/rtp.c
 		src/util.c
 		src/receiver.c)
 target_link_libraries(receiver)
 
 add_executable(opt_sender
 		# if you use recommended template, you need to cancel the comment of the next line
-		#opt_src/rtp.c
+		opt_src/rtp.c
         opt_src/util.c
         opt_src/sender.c)
 target_link_libraries(opt_sender)
 
 add_executable(opt_receiver
 		# if you use recommended template, you need to cancel the comment of the next line
-		#opt_src/rtp.c
+		opt_src/rtp.c
 		opt_src/util.c
 		opt_src/receiver.c)
 target_link_libraries(opt_receiver)

@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/src/rtp.c" "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles/sender.dir/src/rtp.c.o"
   "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/src/sender.c" "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles/sender.dir/src/sender.c.o"
   "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/src/util.c" "/home/eugene/Desktop/CS/lab/Computer-Networking-Labs/Assignment 2/build/CMakeFiles/sender.dir/src/util.c.o"
   )

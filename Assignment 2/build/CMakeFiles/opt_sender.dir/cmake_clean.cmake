@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/opt_sender.dir/opt_src/rtp.c.o"
   "CMakeFiles/opt_sender.dir/opt_src/sender.c.o"
   "CMakeFiles/opt_sender.dir/opt_src/util.c.o"
   "opt_sender"
