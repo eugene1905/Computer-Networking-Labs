@@ -52,9 +52,20 @@ int receiver(char *receiver_port, int window_size, char* file_name) {
 
   // receive packet
   FILE *f = fopen(file_name, "wb+");
-  while ((recv_bytes = rtp_recvfrom(receiver_fd, (void *)buffer, sizeof(buffer), 0, (struct sockaddr*)&sender, &addr_len)) > 0) { 
-    buffer[recv_bytes] = '\0'; 
-    fwrite(buffer, recv_bytes, 1, f); 
+  uint32_t seq_begin = 0;
+  uint32_t ack_record[MAX_WINDOW];
+  while ((recv_bytes = rtp_recvfrom(receiver_fd, (void *)buffer, sizeof(buffer), 0, (struct sockaddr*)&sender, &addr_len, &seq_begin, ack_record)) > 0) { 
+    uint32_t seq = seq_begin;
+    int total_bytes = 0;
+    //buffer[recv_bytes] = '\0'; 
+    while(total_bytes < recv_bytes){
+      fwrite(buffer+(seq-seq_begin)*PACKET_SIZE, ack_record[seq % MAX_WINDOW], 1, f);
+      total_bytes += ack_record[seq % MAX_WINDOW];
+      seq++;
+    }
+    if(total_bytes != recv_bytes)printf("total_bytes = %d, recv_bytes = %d\n", total_bytes, recv_bytes);
+    memset(ack_record, 0, sizeof(ack_record));
+    //fwrite(buffer, recv_bytes, 1, f); 
     //if(recv_bytes < TOTAL_PACKET * PACKET_SIZE) break;
   }
   fclose(f);

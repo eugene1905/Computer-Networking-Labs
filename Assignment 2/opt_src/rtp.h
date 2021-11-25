@@ -13,7 +13,8 @@
 #define RECV_BUFFER_SIZE 32768  // 32KB
 #define BUFFER_SIZE 2048
 #define PACKET_SIZE (1472-11)
-#define MAX_PACKET (750000)
+#define MAX_PACKET 4294967295
+#define MAX_WINDOW 500
 #define TOTAL_PACKET (RECV_BUFFER_SIZE / PACKET_SIZE)
 
 typedef struct __attribute__ ((__packed__)) RTP_header {
@@ -26,9 +27,9 @@ typedef struct __attribute__ ((__packed__)) RTP_header {
 
 typedef struct RTP_control_block {
     uint32_t window_size;
-    uint32_t seq;
-    uint8_t ack_record[MAX_PACKET];
     // TODO: you can add your RTP-related fields here
+    uint32_t ack_record[MAX_WINDOW];
+    uint32_t seq;
 } rcb_t;
 
 static rcb_t* rcb = NULL;
@@ -48,7 +49,7 @@ int rtp_close(int sockfd);
 
 int rtp_sendto(int sockfd, const void *msg, int len, int flags, const struct sockaddr *to, socklen_t tolen);
 
-int rtp_recvfrom(int sockfd, void *buf, int len, int flags, struct sockaddr *from, socklen_t *fromlen);
+int rtp_recvfrom(int sockfd, void *buf, int len, int flags, struct sockaddr *from, socklen_t *fromlen, uint32_t *seq_begin, uint32_t *ack_record);
 
 int rtp_sendstatus(int sockfd, const struct sockaddr *to, socklen_t tolen, int status, int seq);
 

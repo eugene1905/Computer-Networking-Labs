@@ -118,7 +118,6 @@ int rtp_sendto(int sockfd, const void *msg, int len, int flags, const struct soc
         int winEnd = winStart + rcb->window_size;
         if(winEnd > N) winEnd = N;
         for(int i = winStart; i < winEnd; i++){
-            if(rcb->ack_record[i] == 1)continue;
             printf("Sender - Sending packet %d...\n",i );
             char buffer[BUFFER_SIZE];
             int newlen = (i == N-1? len % PACKET_SIZE : PACKET_SIZE);
@@ -134,8 +133,6 @@ int rtp_sendto(int sockfd, const void *msg, int len, int flags, const struct soc
         if((ret = rtp_recvstatus(sockfd, (struct sockaddr*)&sender, &addr_len, &seq)) == RTP_ACK){
             printf("Sender - ACK %d received\n",seq);
             winStart = seq;
-            for(int i = 0; i < winStart; i++)
-                rcb->ack_record[i] = 1;
             flag = 0;
             goto CLEAR_BUFF;
         }
@@ -156,13 +153,13 @@ int rtp_sendto(int sockfd, const void *msg, int len, int flags, const struct soc
     return 1;
 }
 
-int rtp_recvfrom(int sockfd, void *buf, int len, int flags, struct sockaddr *from, socklen_t *fromlen)
+int rtp_recvfrom(int sockfd, void *buf, int len, int flags, struct sockaddr *from, socklen_t *fromlen, uint32_t *seq_begin, uint32_t *ack_record)
 {
     // TODO: recv message
-    int seq = rcb->seq; // seq_num expecting
-    int end_seq = MAX_PACKET; // seq_num of END request
-    int total_len = 0;
-    int max_seq = seq + TOTAL_PACKET;
+    uint32_t seq = rcb->seq; // seq_num expecting
+    uint32_t end_seq = MAX_PACKET; // seq_num of END request
+    uint32_t total_len = 0;
+    uint32_t max_seq = seq + TOTAL_PACKET;
     //printf("Receiving up to packet %d...\n", max_seq);
     while(seq < end_seq && seq < max_seq){
         // get 1 packet
@@ -202,7 +199,7 @@ int rtp_recvfrom(int sockfd, void *buf, int len, int flags, struct sockaddr *fro
         // update window
         if(rtp->seq_num == seq){
             seq++;
-            while(rcb->ack_record[seq] == 1)seq++;
+            while(ack_record[seq%MAX_WINDOW])seq++;
         }
 
         if(rtp->type == RTP_END){
@@ -212,15 +209,16 @@ int rtp_recvfrom(int sockfd, void *buf, int len, int flags, struct sockaddr *fro
             rtp_sendstatus(sockfd, (struct sockaddr*)from, *fromlen, RTP_ACK, rtp->seq_num);
         }
         else{
-            if(rcb->ack_record[rtp->seq_num] != 1)
+            if(ack_record[rtp->seq_num%MAX_WINDOW] == 0)
                 total_len += rtp->length;
-            rcb->ack_record[rtp->seq_num] = 1;
+            ack_record[rtp->seq_num%MAX_WINDOW] = rtp->length;
             printf("Receiver - Sending Ack %d\n", seq);
             rtp_sendstatus(sockfd, (struct sockaddr*)from, *fromlen, RTP_ACK, seq);
             memcpy(buf + (rtp->seq_num - rcb->seq) * PACKET_SIZE, buffer + sizeof(rtp_header_t), rtp->length);
         }   
     }
     if(end_seq != MAX_PACKET)rtp_close(sockfd);
+    *seq_begin = rcb->seq;
     rcb->seq = seq;
     return total_len;
 }
